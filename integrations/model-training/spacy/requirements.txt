@@ -1,0 +1,5 @@
+spacy-streamlit>=1.0.0a0
+streamlit
+comet_ml
+spacy-loggers
+spacy
