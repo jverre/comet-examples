@@ -67,7 +67,7 @@ jobs:
           - {directory: "integrations/model-training/pytorch/pytorch-rich-logging/", command: "python pytorch-rich-logging-example.py", arg: ""}
           - {directory: "integrations/workflow-orchestration/metaflow/metaflow-hello-world/", command: "python helloworld.py", arg: "run"}
           - {directory: "integrations/workflow-orchestration/metaflow/metaflow-regression/", command: "python metaflow-regression-example.py", arg: "run"}
-          - {directory: "integrations/model-training/spacy/", command: "python -m spacy project run preprocess && python -m spacy project run train", arg: "run"}
+          - {directory: "integrations/model-training/spacy/", command: "python -m spacy project run preprocess && python -m spacy project run train", arg: ""}
     env:
       SCRIPT_DIRECTORY: ${{ matrix.example.directory }}
     steps:
