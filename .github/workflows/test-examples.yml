@@ -66,7 +66,8 @@ jobs:
           - {directory: "integrations/model-training/pytorch/pytorch-mnist/", command: "python pytorch-mnist-example.py", arg: ""}
           - {directory: "integrations/model-training/pytorch/pytorch-rich-logging/", command: "python pytorch-rich-logging-example.py", arg: ""}
           - {directory: "integrations/workflow-orchestration/metaflow/metaflow-hello-world/", command: "python helloworld.py", arg: "run"}
-          - {directory: "integrations/workflow-orchestration/metaflow/metaflow-regression/", command: "metaflow-regression-example.py", arg: "run"}
+          - {directory: "integrations/workflow-orchestration/metaflow/metaflow-regression/", command: "python metaflow-regression-example.py", arg: "run"}
+          - {directory: "integrations/model-training/spacy/", command: "python -m spacy project run preprocess && python -m spacy project run train", arg: "run"}
     env:
       SCRIPT_DIRECTORY: ${{ matrix.example.directory }}
     steps:
@@ -92,7 +93,7 @@ jobs:
       - name: Test examples
         run: |
           cd "${SCRIPT_DIRECTORY}" || exit
-          python ${{ matrix.example.command }} ${{ matrix.example.arg }}
+          ${{ matrix.example.command }} ${{ matrix.example.arg }}
         env:
           COMET_API_KEY: ${{ secrets.COMET_API_KEY }}
           COMET_WORKSPACE: cometexamples-tests
