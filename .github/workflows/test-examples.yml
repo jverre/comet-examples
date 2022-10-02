@@ -92,7 +92,7 @@ jobs:
       - name: Test examples
         run: |
           cd "${SCRIPT_DIRECTORY}" || exit
-          python "$matrix.example.command" ${{ matrix.example.arg }}
+          python ${{ matrix.example.command }} ${{ matrix.example.arg }}
         env:
           COMET_API_KEY: ${{ secrets.COMET_API_KEY }}
           COMET_WORKSPACE: cometexamples-tests
